@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/profile/profile_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -63,12 +64,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
@@ -76,65 +71,93 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
         child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => ProfileScreen()));
+                },
+                child: const Text('Profile')),
+            Image.asset('assets/download.jpg'),
+            Image.asset('assets/download (1).jpg'),
+            Image.asset('assets/download (2).jpg'),
+          ],
+        ),
+      ),
+
+      /* body: Center(
+        child: Container(
+          height: 100.0,
+          width: 100.0,
+          color: Colors.yellow,
+          child: Align(
+            alignment: FractionalOffset(0.2, 0.6),
+            child: Container(
+              height: 40.0,
+              width: 40.0,
+              color: Colors.red,
+            ),
+          ),
+        ),
+      ), */
+      // Column is also a layout widget. It takes a list of children and
+      // arranges them vertically. By default, it sizes itself to fit its
+      // children horizontally, and tries to be as tall as its parent.
+      //
+      // Invoke "debug painting" (press "p" in the console, choose the
+      // "Toggle Debug Paint" action from the Flutter Inspector in Android
+      // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
+      // to see the wireframe for each widget.
+      //
+      // Column has various properties to control how it sizes itself and
+      // how it positions its children. Here we use mainAxisAlignment to
+      // center the children vertically; the main axis here is the vertical
+      // axis because Columns are vertical (the cross axis would be
+      // horizontal).
+      /*  mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Image.asset('assets/riot.png', width: 200),
             const Text(
               'Total:',
               style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
-                color: Colors.red,
-                letterSpacing: 2
-              ),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                  color: Colors.red,
+                  letterSpacing: 2),
             ),
             const Text.rich(
               TextSpan(
                 text: 'Aplikasi', // default text style
                 children: <TextSpan>[
                   TextSpan(
-                    text: ' belajar ',
-                    style: TextStyle(fontStyle: FontStyle.italic)),
+                      text: ' belajar ',
+                      style: TextStyle(fontStyle: FontStyle.italic)),
                   TextSpan(
-                    text: 'berhitung',
-                    style: TextStyle(fontWeight: FontWeight.bold)),
+                      text: 'berhitung',
+                      style: TextStyle(fontWeight: FontWeight.bold)),
                 ],
               ),
             ),
             const Icon(
               Icons.check_circle_outline_rounded,
               color: Colors.blue,
-              size:50,
-            ),        
+              size: 50,
+            ),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
           ],
         ),
-      ),
+      ), */
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
+      // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
